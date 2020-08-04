@@ -10,25 +10,28 @@ import XCTest
 @testable import ARTvel
 
 class ARTvelTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    // test list
+    /*
+     1. hitting api
+     using key and secret to pull data from api
+     dictionary json, key:value
+     bulk is in "artObjects" : [ArtObjects]
+     2. models
+     3. classes
+     4. firebase
+     5.
+     */
+    
+    func testRijkCollectionsAPI()   {
+        // arrange
+        let searchQuery = "Rembrandt+van+Rijn"
+        let exp = XCTestExpectation(description: "Art Objects Found")
+        let collectionEndpoint = "https://www.rijksmuseum.nl/api/nl/collection?key=9oErvwz9&involvedMaker=\(searchQuery)"
+        let request = URLRequest(url: URL(string: collectionEndpoint)!)
+        
+        NetworkHelper.shared.performDataTask(with: request)
+        
+        // act
+        // assert
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

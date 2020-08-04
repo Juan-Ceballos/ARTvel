@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -68,6 +68,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E5FEB6A24D9133800C238E5 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3EAC89B724D25A6A004F8851 /* AppDelegate.swift */,
+				3EAC89B924D25A6A004F8851 /* SceneDelegate.swift */,
+				3EAC89C024D25A6E004F8851 /* Assets.xcassets */,
+				3EAC89C224D25A6E004F8851 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		3E5FEB6B24D9136000C238E5 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		3E5FEB6C24D9138500C238E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3E5FEB6D24D9138B00C238E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3E5FEB6E24D9139E00C238E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3E5FEB6F24D913A500C238E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3EAC89AB24D25A6A004F8851 = {
 			isa = PBXGroup;
 			children = (
@@ -91,11 +137,13 @@
 		3EAC89B624D25A6A004F8851 /* ARTvel */ = {
 			isa = PBXGroup;
 			children = (
-				3EAC89B724D25A6A004F8851 /* AppDelegate.swift */,
-				3EAC89B924D25A6A004F8851 /* SceneDelegate.swift */,
+				3E5FEB6F24D913A500C238E5 /* Extensions */,
+				3E5FEB6E24D9139E00C238E5 /* Models */,
+				3E5FEB6D24D9138B00C238E5 /* Views */,
+				3E5FEB6C24D9138500C238E5 /* Controllers */,
+				3E5FEB6B24D9136000C238E5 /* NetworkServices */,
+				3E5FEB6A24D9133800C238E5 /* SupportingFiles */,
 				3EAC89BB24D25A6A004F8851 /* ViewController.swift */,
-				3EAC89C024D25A6E004F8851 /* Assets.xcassets */,
-				3EAC89C224D25A6E004F8851 /* LaunchScreen.storyboard */,
 				3EAC89C524D25A6E004F8851 /* Info.plist */,
 				3EAC89D924D396D4004F8851 /* GoogleService-Info.plist */,
 			);
@@ -119,7 +167,6 @@
 				030A3D03591BD013C3496F41 /* Pods-ARTvelTests.debug.xcconfig */,
 				81799FAC350360BE8D517FC0 /* Pods-ARTvelTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
