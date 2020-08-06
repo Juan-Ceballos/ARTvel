@@ -30,13 +30,14 @@ class ARTvelTests: XCTestCase {
         let request = URLRequest(url: URL(string: collectionEndpoint)!)
         
         NetworkHelper.shared.performDataTask(with: request) { (result) in
-            exp.fulfill()
+            //exp.fulfill()
             switch result {
             case .failure(let error):
                 print(error)
                 XCTFail("\(error)")
             case .success(let data):
-                XCTAssertGreaterThan(data.count, 10_000)
+                exp.fulfill()
+                XCTAssertGreaterThan(data.count, 20_000, "data should be greater than \(data.count)")
             }
         }
         wait(for: [exp], timeout: 5.0)
