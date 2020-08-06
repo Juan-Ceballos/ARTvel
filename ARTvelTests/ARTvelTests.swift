@@ -22,16 +22,28 @@ class ARTvelTests: XCTestCase {
      5.
      */
     
-    func testRijkCollectionsAPI()   {
+    func testNetworkHelperRijkCollectionsAPI()   {
         // arrange
         let searchQuery = "Rembrandt+van+Rijn"
         let exp = XCTestExpectation(description: "Art Objects Found")
         let collectionEndpoint = "https://www.rijksmuseum.nl/api/nl/collection?key=9oErvwz9&involvedMaker=\(searchQuery)"
         let request = URLRequest(url: URL(string: collectionEndpoint)!)
         
-        NetworkHelper.shared.performDataTask(with: request)
-        
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+            exp.fulfill()
+            switch result {
+            case .failure(let error):
+                print(error)
+                XCTFail("\(error)")
+            case .success(let data):
+                XCTAssertGreaterThan(data.count, 10_000)
+            }
+        }
+        wait(for: [exp], timeout: 5.0)
         // act
         // assert
     }
+    
+    
+    
 }
