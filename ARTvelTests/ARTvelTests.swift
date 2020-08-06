@@ -24,9 +24,9 @@ class ARTvelTests: XCTestCase {
     
     func testNetworkHelperRijkCollectionsAPI()   {
         // arrange
-        let searchQuery = "Rembrandt+van+Rijn"
+        let searchQuery = "Rembrandt van Rijn".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let exp = XCTestExpectation(description: "Art Objects Found")
-        let collectionEndpoint = "https://www.rijksmuseum.nl/api/nl/collection?key=9oErvwz9&involvedMaker=\(searchQuery)"
+        let collectionEndpoint = "https://www.rijksmuseum.nl/api/nl/collection?key=\(SecretKey.apiKey)&involvedMaker=\(searchQuery)"
         let request = URLRequest(url: URL(string: collectionEndpoint)!)
         
         NetworkHelper.shared.performDataTask(with: request) { (result) in
