@@ -45,6 +45,27 @@ class ARTvelTests: XCTestCase {
         // assert
     }
     
+    func testFetchArtObject()   {
+        // arrange
+        let searchQuery = "Rembrandt van Rijn"
+        let exp = XCTestExpectation(description: "Art Objects Found")
+        
+        RijksAPIClient.fetchArtObject(searchQuery: searchQuery) { (result) in
+            switch result {
+            case .failure(let appError):
+                print(appError)
+            case .success(let apiArtObjects):
+                exp.fulfill()
+                let numberOfArtItemsForQuery = apiArtObjects.count
+                XCTAssertGreaterThan(numberOfArtItemsForQuery, 3000)
+            }
+        }
+        
+        wait(for: [exp], timeout: 5.0)
+        //fetchArtObject(
+        // act
+        // assert
+    }
     
     
 }
