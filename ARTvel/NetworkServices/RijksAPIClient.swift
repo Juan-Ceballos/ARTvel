@@ -41,6 +41,29 @@ class RijksAPIClient {
     }
     
     public static func fetchDetailsOfArtObject(objectNumber: String, completion: @escaping (Result<ArtObjectDetails, AppError>) -> ())    {
+        let urlEndpoint = "https://www.rijksmuseum.nl/api/nl/collection/\(objectNumber)?key=\(SecretKey.apiKey)"
         
+        guard let url = URL(string: urlEndpoint) else {
+            completion(.failure(.badURL(urlEndpoint)))
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url)
+        
+        NetworkHelper.shared.performDataTask(with: urlRequest) { (result) in
+            switch result {
+            case .failure(let appError):
+                print(appError)
+            case .success(let data):
+                do {
+                    let detailsObject = try JSONDecoder().decode(DetailArtObjectWrapper.self, from: data)
+                    let details = detailsObject.artObject
+                    completion(.success(details))
+                } catch  {
+                    completion(.failure(.decodingError(error)))
+                    return
+                }
+            }
+        }
     }
 }

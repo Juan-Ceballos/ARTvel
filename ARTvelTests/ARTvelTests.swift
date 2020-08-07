@@ -50,7 +50,7 @@ class ARTvelTests: XCTestCase {
         let searchQuery = "Rembrandt van Rijn"
         let exp = XCTestExpectation(description: "Art Objects Found")
         
-        RijksAPIClient.fetchArtObject(searchQuery: searchQuery) { (result) in
+        RijksAPIClient.fetchArtObjects(searchQuery: searchQuery) { (result) in
             switch result {
             case .failure(let appError):
                 print(appError)
@@ -67,7 +67,26 @@ class ARTvelTests: XCTestCase {
         // assert
     }
     
-    //func test FetchDetailsOfArtObject
-    
+    func testFetchDetailsOfArtObject() {
+        // arrange
+        let exp = XCTestExpectation(description: "got details for art object")
+        
+        let objectNumber = "SK-C-5"
+        
+        RijksAPIClient.fetchDetailsOfArtObject(objectNumber: objectNumber) { (result) in
+            switch result {
+            case .failure(let appError):
+                print(appError)
+            case .success(let details):
+                exp.fulfill()
+                let artDate = details.dating.presentingDate
+                XCTAssertEqual(artDate, "1642")
+            }
+        }
+        
+        wait(for: [exp], timeout: 5.0)
+        // act
+        // assert
+    }
     
 }
