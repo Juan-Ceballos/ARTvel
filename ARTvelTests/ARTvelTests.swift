@@ -89,4 +89,24 @@ class ARTvelTests: XCTestCase {
         // assert
     }
     
+    func testFetchEvents()  {
+        // arrange
+        let exp = XCTestExpectation(description: "got events")
+        let expectedEventName = "Eagles"
+        TicketMasterAPIClient.fetchEvents { (result) in
+            switch result {
+            case .failure(let appError):
+                print(appError)
+            case .success(let events):
+                exp.fulfill()
+                let firstEventName = events[0].name
+                XCTAssertEqual(firstEventName, expectedEventName)
+            }
+        }
+        
+        wait(for: [exp], timeout: 5.0)
+        // act
+        // assert
+    }
+    
 }

@@ -13,6 +13,7 @@
 		3E5FEBA924DA010700C238E5 /* TicketmasterAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBA824DA010700C238E5 /* TicketmasterAPIClient.swift */; };
 		3E5FEBAF24DBA78E00C238E5 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBAE24DBA78E00C238E5 /* Secrets.swift */; };
 		3E5FEBB124DCC5AB00C238E5 /* ArtObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBB024DCC5AB00C238E5 /* ArtObject.swift */; };
+		3E5FEBB324DE0D8D00C238E5 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBB224DE0D8D00C238E5 /* Event.swift */; };
 		3EAC89B824D25A6A004F8851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC89B724D25A6A004F8851 /* AppDelegate.swift */; };
 		3EAC89BA24D25A6A004F8851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC89B924D25A6A004F8851 /* SceneDelegate.swift */; };
 		3EAC89BC24D25A6A004F8851 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC89BB24D25A6A004F8851 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		3E5FEBA824DA010700C238E5 /* TicketmasterAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketmasterAPIClient.swift; sourceTree = "<group>"; };
 		3E5FEBAE24DBA78E00C238E5 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3E5FEBB024DCC5AB00C238E5 /* ArtObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObject.swift; sourceTree = "<group>"; };
+		3E5FEBB224DE0D8D00C238E5 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		3EAC89B424D25A6A004F8851 /* ARTvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAC89B724D25A6A004F8851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EAC89B924D25A6A004F8851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				3E5FEBB024DCC5AB00C238E5 /* ArtObject.swift */,
+				3E5FEBB224DE0D8D00C238E5 /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				3E5FEBAF24DBA78E00C238E5 /* Secrets.swift in Sources */,
 				3EAC89BC24D25A6A004F8851 /* ViewController.swift in Sources */,
 				3E5FEBA524D9ED6400C238E5 /* AppError.swift in Sources */,
+				3E5FEBB324DE0D8D00C238E5 /* Event.swift in Sources */,
 				3E5FEBB124DCC5AB00C238E5 /* ArtObject.swift in Sources */,
 				3EAC89B824D25A6A004F8851 /* AppDelegate.swift in Sources */,
 				3E5FEBA924DA010700C238E5 /* TicketmasterAPIClient.swift in Sources */,
