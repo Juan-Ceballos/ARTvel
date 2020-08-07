@@ -13,7 +13,26 @@ struct ArtObjectWrapper: Decodable {
 }
 
 struct ArtObject: Decodable {
+    let objectNumber: String
     let title: String
+    let webImage: WebImage
 }
 
+struct WebImage: Decodable {
+    let url: String
+}
+
+struct DetailArtObjectWrapper: Decodable {
+    let artObject: ArtObjectDetails
+}
+
+struct ArtObjectDetails: Decodable {
+    let plaqueDescriptionEnglish: String
+    let dating: DateWrapper
+    let productionPlaces: [String]
+}
+
+struct DateWrapper: Decodable {
+    let presentingDate: String
+}
 

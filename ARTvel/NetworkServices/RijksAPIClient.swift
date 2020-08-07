@@ -9,7 +9,7 @@
 import Foundation
 
 class RijksAPIClient {
-    public static func fetchArtObject(searchQuery: String, completion: @escaping (Result<[ArtObject], AppError>) -> ())   {
+    public static func fetchArtObjects(searchQuery: String, completion: @escaping (Result<[ArtObject], AppError>) -> ())   {
         
         let urlSearchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         
@@ -38,5 +38,9 @@ class RijksAPIClient {
                 }
             }
         }
+    }
+    
+    public static func fetchDetailsOfArtObject(objectNumber: String, completion: @escaping (Result<ArtObjectDetails, AppError>) -> ())    {
+        
     }
 }

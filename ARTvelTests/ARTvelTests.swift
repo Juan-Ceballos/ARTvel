@@ -45,7 +45,7 @@ class ARTvelTests: XCTestCase {
         // assert
     }
     
-    func testFetchArtObject()   {
+    func testFetchArtObjects()   {
         // arrange
         let searchQuery = "Rembrandt van Rijn"
         let exp = XCTestExpectation(description: "Art Objects Found")
@@ -57,7 +57,7 @@ class ARTvelTests: XCTestCase {
             case .success(let apiArtObjects):
                 exp.fulfill()
                 let numberOfArtItemsForQuery = apiArtObjects.count
-                XCTAssertGreaterThan(numberOfArtItemsForQuery, 3000)
+                XCTAssertGreaterThan(numberOfArtItemsForQuery, 5)
             }
         }
         
@@ -66,6 +66,8 @@ class ARTvelTests: XCTestCase {
         // act
         // assert
     }
+    
+    //func test FetchDetailsOfArtObject
     
     
 }
