@@ -92,8 +92,8 @@ class ARTvelTests: XCTestCase {
     func testFetchEvents()  {
         // arrange
         let exp = XCTestExpectation(description: "got events")
-        let expectedEventName = "Eagles"
-        TicketMasterAPIClient.fetchEvents { (result) in
+        let expectedEventName = "Dave Chappelle - Controlled Danger"
+        TicketMasterAPIClient.fetchEvents(stateCode: "", city: "", postalCode: "") { (result) in
             switch result {
             case .failure(let appError):
                 print(appError)

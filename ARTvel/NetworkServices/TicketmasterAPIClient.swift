@@ -9,9 +9,16 @@
 import Foundation
 
 class TicketMasterAPIClient {
-    static func fetchEvents(completion: @escaping (Result<[Event], AppError>) -> ())   {
+    static func fetchEvents(stateCode: String, city: String, postalCode: String, completion: @escaping (Result<[Event], AppError>) -> ())   {
         // basic call then add querys
-        let endpointURL = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=\(SecretKey.consumerKey)"
+        // how can they search to add querys
+        // postal code, city, statecode
+        
+        //let stateCode = ""
+        //let city = ""
+        //let postalCode = ""
+        
+        let endpointURL = "https://app.ticketmaster.com/discovery/v2/events.json?\(stateCode)&\(city)&\(postalCode)apikey=\(SecretKey.consumerKey)"
         
         guard let url = URL(string: endpointURL) else {
             completion(.failure(.badURL(endpointURL)))
