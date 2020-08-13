@@ -18,7 +18,7 @@ class TicketMasterAPIClient {
         //let city = ""
         //let postalCode = ""
         
-        let endpointURL = "https://app.ticketmaster.com/discovery/v2/events.json?\(stateCode)&\(city)&\(postalCode)apikey=\(SecretKey.consumerKey)"
+        let endpointURL = "https://app.ticketmaster.com/discovery/v2/events.json?stateCode=\(stateCode)&city=\(city)&postalCode=\(postalCode)&apikey=\(SecretKey.consumerKey)"
         
         guard let url = URL(string: endpointURL) else {
             completion(.failure(.badURL(endpointURL)))
