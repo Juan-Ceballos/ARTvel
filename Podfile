@@ -6,7 +6,13 @@ target 'ARTvel' do
   use_frameworks!
 
   # Pods for ARTvel
-  pod 'Firebase/Analytics'
+  # pod 'Firebase/Analytics'
+  pod 'SnapKit'
+  pod 'Kingfisher'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  # pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Storage'
 
   target 'ARTvelTests' do
     inherit! :search_paths

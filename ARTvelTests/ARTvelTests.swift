@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import FirebaseAuth
 @testable import ARTvel
 
 class ARTvelTests: XCTestCase {
@@ -91,6 +92,7 @@ class ARTvelTests: XCTestCase {
     
     func testFetchEvents()  {
         // arrange
+        // event will change
         let exp = XCTestExpectation(description: "got events")
         let expectedEventName = "Dave Chappelle - Controlled Danger"
         TicketMasterAPIClient.fetchEvents(stateCode: "", city: "", postalCode: "") { (result) in
@@ -107,6 +109,24 @@ class ARTvelTests: XCTestCase {
         wait(for: [exp], timeout: 5.0)
         // act
         // assert
+    }
+    
+    func testCreateAuthenticatedUser()  {
+        // only works first time since user created than exist so not created again
+        let email = "whateva@email.com"
+        let password = "123456"
+        let exp = expectation(description: "User Created")
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
+            exp.fulfill()
+            if let error = error    {
+                XCTFail("Failed to create user error: \(error.localizedDescription)")
+            }   else if let authDataResult = authDataResult {
+                XCTAssertEqual(authDataResult.user.email, email)
+            }
+        }
+        
+        wait(for: [exp], timeout: 3.0)
     }
     
 }
