@@ -17,9 +17,15 @@
 		3E5FEBB624E77C8100C238E5 /* AuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBB524E77C8000C238E5 /* AuthSession.swift */; };
 		3E5FEBB824E77CA800C238E5 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBB724E77CA700C238E5 /* DatabaseService.swift */; };
 		3E5FEBBA24E77CBC00C238E5 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBB924E77CBC00C238E5 /* StorageService.swift */; };
+		3E5FEBBC24E8A23600C238E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBBB24E8A23600C238E5 /* User.swift */; };
+		3E5FEBBE24E8A30300C238E5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBBD24E8A30300C238E5 /* LoginView.swift */; };
+		3E5FEBC024E8A79700C238E5 /* UserExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBBF24E8A79700C238E5 /* UserExperienceViewController.swift */; };
+		3E5FEBC224E8A7A700C238E5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBC124E8A7A700C238E5 /* MainTabBarController.swift */; };
+		3E5FEBC424E8A7C900C238E5 /* UserExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBC324E8A7C900C238E5 /* UserExperienceView.swift */; };
+		3E5FEBC624E8A7D400C238E5 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBC524E8A7D400C238E5 /* MainTabBarView.swift */; };
 		3EAC89B824D25A6A004F8851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC89B724D25A6A004F8851 /* AppDelegate.swift */; };
 		3EAC89BA24D25A6A004F8851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC89B924D25A6A004F8851 /* SceneDelegate.swift */; };
-		3EAC89BC24D25A6A004F8851 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC89BB24D25A6A004F8851 /* ViewController.swift */; };
+		3EAC89BC24D25A6A004F8851 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC89BB24D25A6A004F8851 /* LoginViewController.swift */; };
 		3EAC89C124D25A6E004F8851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EAC89C024D25A6E004F8851 /* Assets.xcassets */; };
 		3EAC89C424D25A6E004F8851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAC89C224D25A6E004F8851 /* LaunchScreen.storyboard */; };
 		3EAC89CF24D25A6E004F8851 /* ARTvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC89CE24D25A6E004F8851 /* ARTvelTests.swift */; };
@@ -51,10 +57,16 @@
 		3E5FEBB524E77C8000C238E5 /* AuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSession.swift; sourceTree = "<group>"; };
 		3E5FEBB724E77CA700C238E5 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		3E5FEBB924E77CBC00C238E5 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		3E5FEBBB24E8A23600C238E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3E5FEBBD24E8A30300C238E5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3E5FEBBF24E8A79700C238E5 /* UserExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExperienceViewController.swift; sourceTree = "<group>"; };
+		3E5FEBC124E8A7A700C238E5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3E5FEBC324E8A7C900C238E5 /* UserExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExperienceView.swift; sourceTree = "<group>"; };
+		3E5FEBC524E8A7D400C238E5 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		3EAC89B424D25A6A004F8851 /* ARTvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAC89B724D25A6A004F8851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EAC89B924D25A6A004F8851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3EAC89BB24D25A6A004F8851 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3EAC89BB24D25A6A004F8851 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EAC89C024D25A6E004F8851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EAC89C324D25A6E004F8851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EAC89C524D25A6E004F8851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,7 +125,9 @@
 		3E5FEB6C24D9138500C238E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3EAC89BB24D25A6A004F8851 /* ViewController.swift */,
+				3EAC89BB24D25A6A004F8851 /* LoginViewController.swift */,
+				3E5FEBBF24E8A79700C238E5 /* UserExperienceViewController.swift */,
+				3E5FEBC124E8A7A700C238E5 /* MainTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -121,6 +135,9 @@
 		3E5FEB6D24D9138B00C238E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E5FEBBD24E8A30300C238E5 /* LoginView.swift */,
+				3E5FEBC324E8A7C900C238E5 /* UserExperienceView.swift */,
+				3E5FEBC524E8A7D400C238E5 /* MainTabBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +147,7 @@
 			children = (
 				3E5FEBB024DCC5AB00C238E5 /* ArtObject.swift */,
 				3E5FEBB224DE0D8D00C238E5 /* Event.swift */,
+				3E5FEBBB24E8A23600C238E5 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -395,17 +413,23 @@
 			files = (
 				3E5FEBA324D9ED4000C238E5 /* NetworkHelper.swift in Sources */,
 				3E5FEBAF24DBA78E00C238E5 /* Secrets.swift in Sources */,
-				3EAC89BC24D25A6A004F8851 /* ViewController.swift in Sources */,
+				3EAC89BC24D25A6A004F8851 /* LoginViewController.swift in Sources */,
+				3E5FEBC624E8A7D400C238E5 /* MainTabBarView.swift in Sources */,
+				3E5FEBBE24E8A30300C238E5 /* LoginView.swift in Sources */,
 				3E5FEBA524D9ED6400C238E5 /* AppError.swift in Sources */,
 				3E5FEBB324DE0D8D00C238E5 /* Event.swift in Sources */,
 				3E5FEBB624E77C8100C238E5 /* AuthSession.swift in Sources */,
+				3E5FEBBC24E8A23600C238E5 /* User.swift in Sources */,
 				3E5FEBB824E77CA800C238E5 /* DatabaseService.swift in Sources */,
 				3E5FEBBA24E77CBC00C238E5 /* StorageService.swift in Sources */,
 				3E5FEBB124DCC5AB00C238E5 /* ArtObject.swift in Sources */,
 				3EAC89B824D25A6A004F8851 /* AppDelegate.swift in Sources */,
 				3E5FEBA924DA010700C238E5 /* TicketmasterAPIClient.swift in Sources */,
+				3E5FEBC424E8A7C900C238E5 /* UserExperienceView.swift in Sources */,
 				3EAC89BA24D25A6A004F8851 /* SceneDelegate.swift in Sources */,
 				3E5FEBA724DA00C800C238E5 /* RijksAPIClient.swift in Sources */,
+				3E5FEBC024E8A79700C238E5 /* UserExperienceViewController.swift in Sources */,
+				3E5FEBC224E8A7A700C238E5 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

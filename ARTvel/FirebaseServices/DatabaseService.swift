@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
+
+class DatabaseService {
+    static let usersCollection = "users"
+    
+    private let db = Firestore.firestore()
+    
+    public func createDatabaseUser(authDataResult: AuthDataResult, completion: @escaping (Result<Bool, Error>) -> ())    {
+        
+    }
+}
