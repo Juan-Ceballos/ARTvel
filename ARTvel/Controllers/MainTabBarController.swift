@@ -6,4 +6,10 @@
 //  Copyright © 2020 Juan Ceballos. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MainTabBarController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}

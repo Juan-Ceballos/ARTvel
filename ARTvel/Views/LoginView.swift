@@ -6,10 +6,8 @@
 //  Copyright © 2020 Juan Ceballos. All rights reserved.
 //
 
-import Foundation
-import SnapKit
-
 import UIKit
+import SnapKit
 
 class LoginView: UIView {
     
