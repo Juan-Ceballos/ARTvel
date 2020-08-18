@@ -8,11 +8,6 @@
 
 import UIKit
 
-// save user experience
-// firebase, user defaults, core data
-// save a string experience 1/2
-// access it to get experience
-
 let userExperienceView = UserExperienceView()
 
 class UserExperienceViewController: UIViewController {
@@ -26,6 +21,20 @@ class UserExperienceViewController: UIViewController {
         view.backgroundColor = .systemTeal
         userExperienceView.experiencePickerView.dataSource = self
         userExperienceView.experiencePickerView.delegate = self
+        userExperienceView.confirmButton.addTarget(self, action: #selector(experienceConfirmed), for: .touchUpInside)
+    }
+    
+    @objc private func experienceConfirmed()  {
+        print("experience confirmed")
+        if userExperienceView.experiencePickerView.selectedRow(inComponent: 0) == 0 {
+            UserPreference.shared.updateUserPreference(with: .rijks)
+            print("rijks")
+        } else {
+            UserPreference.shared.updateUserPreference(with: .ticketmaster)
+            print("ticketmaster")
+        }
+        
+        // move to main tab, and switch it to the default tab
     }
 }
 
@@ -37,7 +46,6 @@ extension UserExperienceViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 2
     }
-    
 }
 
 extension UserExperienceViewController: UIPickerViewDelegate {
@@ -48,7 +56,4 @@ extension UserExperienceViewController: UIPickerViewDelegate {
             return "Ticketmaster"
         }
     }
-    
 }
-// picker to select experience
-// button to lock it in

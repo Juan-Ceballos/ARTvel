@@ -16,6 +16,12 @@ class UserExperienceView: UIView {
         return pickerView
     }()
     
+    public lazy var confirmButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Confirm", for: .normal)
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -28,6 +34,7 @@ class UserExperienceView: UIView {
     
     private func commonInit()   {
         configureExperiencePickerViewConstraints()
+        configureConfirmButtonConstraints()
     }
     
     private func configureExperiencePickerViewConstraints() {
@@ -36,7 +43,15 @@ class UserExperienceView: UIView {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.25)
+            make.height.equalToSuperview().multipliedBy(0.3)
+        }
+    }
+    
+    private func configureConfirmButtonConstraints() {
+        addSubview(confirmButton)
+        confirmButton.snp.makeConstraints { (make) in
+            make.top.equalTo(experiencePickerView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
         }
     }
 }

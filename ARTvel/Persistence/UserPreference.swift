@@ -9,8 +9,8 @@
 import Foundation
 
 enum Experience: String {
-    case rijks = "rijks"
-    case ticketmaster = "ticketmaster"
+    case rijks = "Rijksmuseum"
+    case ticketmaster = "Ticketmaster"
 }
 
 struct UserPreferenceKey {

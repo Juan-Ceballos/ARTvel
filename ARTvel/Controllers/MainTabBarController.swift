@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainTabBarController: UIViewController {
+    
+    let auth = AuthSession()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemRed
     }
 }

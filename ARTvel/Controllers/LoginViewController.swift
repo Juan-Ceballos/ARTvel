@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+    let auth = AuthSession()
+    
+    let loginView = LoginView()
+    
+    override func loadView() {
+        view = loginView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .systemOrange
     }
 }
