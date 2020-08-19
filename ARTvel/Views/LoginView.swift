@@ -11,12 +11,20 @@ import SnapKit
 
 class LoginView: UIView {
     
+    //let bottomLine = CALayer()
+    
     public var usernameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "username"
-        textField.borderStyle = .roundedRect
+        //textField.placeholder = "username"
+        textField.attributedPlaceholder = NSAttributedString(string: "username",
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
+        textField.borderStyle = .none
+        let ca = CALayer()
+        ca.frame = CGRect(x: 0, y: textField.frame.height + 24, width: 100, height: 1)
+        ca.backgroundColor = UIColor(cgColor: CGColor(srgbRed: 166/255, green: 125/255, blue: 39/255, alpha: 1)).cgColor
+        textField.layer.addSublayer(ca)
         return textField
     }()
     
@@ -24,7 +32,7 @@ class LoginView: UIView {
         let textField = UITextField()
         textField.placeholder = "password"
         textField.placeholder = "username"
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .none
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         return textField
@@ -57,6 +65,13 @@ class LoginView: UIView {
     
     private func setupUsernameTextFieldConstraints()    {
         addSubview(usernameTextField)
+        usernameTextField.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    private func setupUsernameLineTextFieldConstraints()    {
         usernameTextField.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()
