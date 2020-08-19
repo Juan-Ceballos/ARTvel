@@ -15,26 +15,31 @@ class LoginView: UIView {
     
     public var usernameTextField: UITextField = {
         let textField = UITextField()
-        //textField.placeholder = "username"
         textField.attributedPlaceholder = NSAttributedString(string: "username",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.textAlignment = .center
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.borderStyle = .none
         let ca = CALayer()
-        ca.frame = CGRect(x: 0, y: textField.frame.height + 24, width: 100, height: 1)
-        ca.backgroundColor = UIColor(cgColor: CGColor(srgbRed: 166/255, green: 125/255, blue: 39/255, alpha: 1)).cgColor
+        ca.frame = CGRect(x: 0, y: textField.frame.height + 22, width: UIScreen.main.bounds.size.width - 44, height: 1)
+        ca.backgroundColor = UIColor(red: 166/255, green: 125/255, blue: 39/255, alpha: 1).cgColor
         textField.layer.addSublayer(ca)
         return textField
     }()
     
     public var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "password"
-        textField.placeholder = "username"
-        textField.borderStyle = .none
+        textField.attributedPlaceholder = NSAttributedString(string: "password",
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.textAlignment = .center
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
+        textField.borderStyle = .none
+        let ca = CALayer()
+        ca.frame = CGRect(x: 0, y: textField.frame.height + 22, width: UIScreen.main.bounds.size.width - 44, height: 1)
+        ca.backgroundColor = UIColor(red: 166/255, green: 125/255, blue: 39/255, alpha: 1).cgColor
+        textField.layer.addSublayer(ca)
         return textField
     }()
     
@@ -61,20 +66,24 @@ class LoginView: UIView {
     
     private func commonInit()   {
         setupUsernameTextFieldConstraints()
+        setupPasswordTextFieldConstraints()
     }
     
     private func setupUsernameTextFieldConstraints()    {
         addSubview(usernameTextField)
         usernameTextField.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(22)
+            make.right.equalToSuperview().offset(-22)
         }
     }
     
-    private func setupUsernameLineTextFieldConstraints()    {
-        usernameTextField.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.centerX.equalToSuperview()
+    private func setupPasswordTextFieldConstraints()    {
+        addSubview(passwordTextField)
+        passwordTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(usernameTextField.snp.bottom).offset(22)
+            make.left.equalToSuperview().offset(22)
+            make.right.equalToSuperview().offset(-22)
         }
     }
     
