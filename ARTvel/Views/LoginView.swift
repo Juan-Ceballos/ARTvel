@@ -22,8 +22,7 @@ class LoginView: UIView {
         let label = UILabel()
         label.text = "ARTvel"
         label.textAlignment = .center
-        //label.font = .italicSystemFont(ofSize: 55)
-        label.font = UIFont(name: "copperplate", size: 40)
+        label.font = UIFont(name: "copperplate", size: 55)
         label.adjustsFontSizeToFitWidth = true
         label.textColor = UIColor(red: 166/255, green: 125/255, blue: 39/255, alpha: 1)
         return label
@@ -32,7 +31,6 @@ class LoginView: UIView {
     public var usernameTextField: UITextField = {
         let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        //textField.textAlignment = .center
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.borderStyle = .none
@@ -49,7 +47,6 @@ class LoginView: UIView {
         let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(string: "Password",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        //textField.textAlignment = .center
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.borderStyle = .none
@@ -59,21 +56,26 @@ class LoginView: UIView {
         ca.backgroundColor = UIColor(red: 166/255, green: 125/255, blue: 39/255, alpha: 0.5).cgColor
         ca.cornerRadius = ca.frame.size.width / 200
         textField.layer.addSublayer(ca)
+        textField.isSecureTextEntry = true
         return textField
     }()
     
     public var loginButton: UIButton = {
         let screenWidth = UIScreen.main.bounds.size.width
-        let button = UIButton()
+        let button = UIButton(type: .system)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        button.setTitleColor(.systemBackground, for: .normal)
         button.setTitle("Create My Account", for: .normal)
         button.backgroundColor = UIColor(red: 201/255, green: 214/255, blue: 223/255, alpha: 0.2)
         return button
     }()
     
     public var signedUpUserButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
+        button.setTitleColor(.systemBackground, for: .normal)
         button.setTitle("I'm Already A User", for: .normal)
-        button.backgroundColor = .orange
+        button.backgroundColor = UIColor(red: 166/255, green: 125/255, blue: 39/255, alpha: 1)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         return button
     }()
     
@@ -107,7 +109,7 @@ class LoginView: UIView {
     private func setupUsernameTextFieldConstraints()    {
         addSubview(usernameTextField)
         usernameTextField.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview().offset(-66)
+            make.centerY.equalToSuperview().offset(-88)
             make.left.equalToSuperview().offset(22)
             make.right.equalToSuperview().offset(-22)
         }
@@ -116,7 +118,7 @@ class LoginView: UIView {
     private func setupPasswordTextFieldConstraints()    {
         addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints { (make) in
-            make.top.equalTo(usernameTextField.snp.bottom).offset(33)
+            make.top.equalTo(usernameTextField.snp.bottom).offset(40)
             make.left.equalToSuperview().offset(22)
             make.right.equalToSuperview().offset(-22)
         }
@@ -125,12 +127,10 @@ class LoginView: UIView {
     private func setupLoginButtonConstraints()  {
         addSubview(loginButton)
         loginButton.snp.makeConstraints { (make) in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(33)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(55)
             make.width.equalToSuperview().multipliedBy(0.5)
             make.height.equalTo(loginButton.snp.width).multipliedBy(0.2)
             make.centerX.equalToSuperview()
-//            make.left.equalToSuperview().offset(33)
-//            make.right.equalToSuperview().offset(-33)
         }
     }
     
@@ -139,6 +139,7 @@ class LoginView: UIView {
         signedUpUserButton.snp.makeConstraints { (make) in
             make.left.equalToSuperview()
             make.right.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.075)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
     }
