@@ -22,7 +22,9 @@ class LoginView: UIView {
         let label = UILabel()
         label.text = "ARTvel"
         label.textAlignment = .center
-        label.font = .italicSystemFont(ofSize: 33)
+        //label.font = .italicSystemFont(ofSize: 55)
+        label.font = UIFont(name: "copperplate", size: 40)
+        label.adjustsFontSizeToFitWidth = true
         label.textColor = UIColor(red: 166/255, green: 125/255, blue: 39/255, alpha: 1)
         return label
     }()
@@ -61,8 +63,17 @@ class LoginView: UIView {
     }()
     
     public var loginButton: UIButton = {
+        let screenWidth = UIScreen.main.bounds.size.width
         let button = UIButton()
         button.setTitle("Create My Account", for: .normal)
+        button.backgroundColor = UIColor(red: 201/255, green: 214/255, blue: 223/255, alpha: 0.2)
+        return button
+    }()
+    
+    public var signedUpUserButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("I'm Already A User", for: .normal)
+        button.backgroundColor = .orange
         return button
     }()
     
@@ -81,6 +92,7 @@ class LoginView: UIView {
         setupUsernameTextFieldConstraints()
         setupPasswordTextFieldConstraints()
         setupLoginButtonConstraints()
+        setupSignedUpUserButton()
     }
     
     private func setupAppTitleLabelConstraints()    {
@@ -114,8 +126,20 @@ class LoginView: UIView {
         addSubview(loginButton)
         loginButton.snp.makeConstraints { (make) in
             make.top.equalTo(passwordTextField.snp.bottom).offset(33)
-            make.left.equalToSuperview().offset(33)
-            make.right.equalToSuperview().offset(-33)
+            make.width.equalToSuperview().multipliedBy(0.5)
+            make.height.equalTo(loginButton.snp.width).multipliedBy(0.2)
+            make.centerX.equalToSuperview()
+//            make.left.equalToSuperview().offset(33)
+//            make.right.equalToSuperview().offset(-33)
+        }
+    }
+    
+    private func setupSignedUpUserButton()  {
+        addSubview(signedUpUserButton)
+        signedUpUserButton.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
         }
     }
     
