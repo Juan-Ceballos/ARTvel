@@ -27,13 +27,13 @@ class LoginViewController: UIViewController {
         view.backgroundColor = UIColor(red: 51/255, green: 66/255, blue: 63/255, alpha: 1)
         loginView.passwordTextField.delegate = self
         loginView.usernameTextField.delegate = self
-        loginView.loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-        loginView.signedUpUserButton.addTarget(self, action: #selector(signedUpUserButtonPressed), for: .touchUpInside)
+        loginView.createAccountButton.addTarget(self, action: #selector(createAccountButtonPressed), for: .touchUpInside)
+        loginView.signedUpUserButton.addTarget(self, action: #selector(signinButtonPressed), for: .touchUpInside)
     }
     
     
     
-    private func loginExistingUser(email: String, password: String) {
+    private func signinExistingUser(email: String, password: String) {
         authSession.signExistingUser(email: email, password: password) { [weak self] (result) in
             switch result {
             case .failure(let error):
@@ -46,6 +46,32 @@ class LoginViewController: UIViewController {
           }
     }
     
+    private func createDatabaseUser(authDataResult: AuthDataResult)   {
+        db.createDatabaseUser(authDataResult: authDataResult) { [weak self] (result) in
+          switch result {
+          case .failure(let error):
+            DispatchQueue.main.async {
+              self?.showAlert(title: "Account error", message: error.localizedDescription)
+            }
+          case .success:
+            DispatchQueue.main.async {
+              self?.navigateToUserExperience()
+            }
+          }
+        }
+    }
+    
+    private func createNewUser(email: String, password: String) {
+        authSession.createNewUser(email: email, password: password) { [weak self] (result) in
+            switch result   {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let authDataResult):
+                self?.createDatabaseUser(authDataResult: authDataResult)
+            }
+        }
+    }
+    
     private func navigateToMainView()   {
         UIViewController.showVC(viewcontroller: mainTabVC)
     }
@@ -54,7 +80,7 @@ class LoginViewController: UIViewController {
         UIViewController.showVC(viewcontroller: userExperienceVC)
     }
     
-    @objc func loginButtonPressed() {
+    @objc func createAccountButtonPressed() {
         guard let email = loginView.usernameTextField.text,
             !email.isEmpty,
             let password = loginView.passwordTextField.text,
@@ -64,14 +90,13 @@ class LoginViewController: UIViewController {
             return
         }
         
-        loginExistingUser(email: email, password: password)
+        createNewUser(email: email, password: password)
     }
     
-    @objc func signedUpUserButtonPressed()  {
+    @objc func signinButtonPressed()  {
         
     }
     
-    // sign in and create user
     // navigate to one of 2 views depending on already user or new
 }
 

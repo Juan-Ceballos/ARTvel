@@ -12,10 +12,10 @@ import SnapKit
 class LoginView: UIView {
     
     override func layoutSubviews() {
-        loginButton.clipsToBounds = true
-        loginButton.layer.borderWidth = 1
-        loginButton.layer.cornerRadius = loginButton.frame.size.height / 2
-        loginButton.layer.borderColor = UIColor.black.cgColor
+        createAccountButton.clipsToBounds = true
+        createAccountButton.layer.borderWidth = 1
+        createAccountButton.layer.cornerRadius = createAccountButton.frame.size.height / 2
+        createAccountButton.layer.borderColor = UIColor.black.cgColor
     }
     
     public var appTitleLabel: UILabel = {
@@ -60,7 +60,7 @@ class LoginView: UIView {
         return textField
     }()
     
-    public var loginButton: UIButton = {
+    public var createAccountButton: UIButton = {
         let screenWidth = UIScreen.main.bounds.size.width
         let button = UIButton(type: .system)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
@@ -125,11 +125,11 @@ class LoginView: UIView {
     }
     
     private func setupLoginButtonConstraints()  {
-        addSubview(loginButton)
-        loginButton.snp.makeConstraints { (make) in
+        addSubview(createAccountButton)
+        createAccountButton.snp.makeConstraints { (make) in
             make.top.equalTo(passwordTextField.snp.bottom).offset(55)
             make.width.equalToSuperview().multipliedBy(0.5)
-            make.height.equalTo(loginButton.snp.width).multipliedBy(0.2)
+            make.height.equalTo(createAccountButton.snp.width).multipliedBy(0.2)
             make.centerX.equalToSuperview()
         }
     }
