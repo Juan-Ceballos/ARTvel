@@ -30,7 +30,7 @@ class LoginView: UIView {
     
     public var usernameTextField: UITextField = {
         let textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.attributedPlaceholder = NSAttributedString(string: "Username(email)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.borderStyle = .none
@@ -73,7 +73,7 @@ class LoginView: UIView {
     public var signedUpUserButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.systemBackground, for: .normal)
-        button.setTitle("I'm Already A User", for: .normal)
+        button.setTitle("Current User Sign-in", for: .normal)
         button.backgroundColor = UIColor(red: 166/255, green: 125/255, blue: 39/255, alpha: 1)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         return button

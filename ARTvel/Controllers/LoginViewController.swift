@@ -11,7 +11,10 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
-    let auth = AuthSession()
+    let authSession = AuthSession()
+    let db = DatabaseService()
+    let mainTabVC = MainTabBarController()
+    let userExperienceVC = UserExperienceViewController()
     
     let loginView = LoginView()
     
@@ -24,7 +27,52 @@ class LoginViewController: UIViewController {
         view.backgroundColor = UIColor(red: 51/255, green: 66/255, blue: 63/255, alpha: 1)
         loginView.passwordTextField.delegate = self
         loginView.usernameTextField.delegate = self
+        loginView.loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        loginView.signedUpUserButton.addTarget(self, action: #selector(signedUpUserButtonPressed), for: .touchUpInside)
     }
+    
+    
+    
+    private func loginExistingUser(email: String, password: String) {
+        authSession.signExistingUser(email: email, password: password) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success:
+              DispatchQueue.main.async {
+                self?.navigateToMainView()
+              }
+            }
+          }
+    }
+    
+    private func navigateToMainView()   {
+        UIViewController.showVC(viewcontroller: mainTabVC)
+    }
+    
+    private func navigateToUserExperience() {
+        UIViewController.showVC(viewcontroller: userExperienceVC)
+    }
+    
+    @objc func loginButtonPressed() {
+        guard let email = loginView.usernameTextField.text,
+            !email.isEmpty,
+            let password = loginView.passwordTextField.text,
+            !password.isEmpty
+        else    {
+            print("missing fields")
+            return
+        }
+        
+        loginExistingUser(email: email, password: password)
+    }
+    
+    @objc func signedUpUserButtonPressed()  {
+        
+    }
+    
+    // sign in and create user
+    // navigate to one of 2 views depending on already user or new
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -36,7 +84,12 @@ extension LoginViewController: UITextFieldDelegate {
         
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
-        return updatedText.count <= 9
+        if textField == loginView.passwordTextField {
+            return updatedText.count <= 18
+        }
+        else {
+            return updatedText.count <= 36
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
