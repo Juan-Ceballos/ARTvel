@@ -9,13 +9,14 @@
 import UIKit
 import FirebaseAuth
 
-class MainTabBarController: UIViewController {
+class MainTabBarController: UITabBarController {
     
-    let auth = AuthSession()
+    let authSession = AuthSession()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
+        viewControllers = [SettingsViewController()]
         //auth.signOutCurrentUser()
     }
 }

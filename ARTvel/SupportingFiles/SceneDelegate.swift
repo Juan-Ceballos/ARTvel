@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = scene
         
-        if let _ = Auth.auth().currentUser {
+        if let _ = Auth.auth().currentUser, let _ = UserPreference.shared.getUserPreference() {
           UIViewController.showVC(viewcontroller: MainTabBarController())
         } else {
           UIViewController.showVC(viewcontroller: LoginViewController())

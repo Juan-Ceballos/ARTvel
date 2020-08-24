@@ -8,9 +8,11 @@
 
 import UIKit
 
-let userExperienceView = UserExperienceView()
 
 class UserExperienceViewController: UIViewController {
+    
+    let userExperienceView = UserExperienceView()
+    let db = DatabaseService()
     
     override func loadView() {
         view = userExperienceView
@@ -22,19 +24,25 @@ class UserExperienceViewController: UIViewController {
         userExperienceView.experiencePickerView.dataSource = self
         userExperienceView.experiencePickerView.delegate = self
         userExperienceView.confirmButton.addTarget(self, action: #selector(experienceConfirmed), for: .touchUpInside)
+        userExperienceView.cancelButton.addTarget(self, action: #selector(experienceCanceled), for: .touchUpInside)
     }
     
     @objc private func experienceConfirmed()  {
         print("experience confirmed")
         if userExperienceView.experiencePickerView.selectedRow(inComponent: 0) == 0 {
-            UserPreference.shared.updateUserPreference(with: .rijks)
+            //
             print("rijks")
         } else {
-            UserPreference.shared.updateUserPreference(with: .ticketmaster)
+            //
             print("ticketmaster")
         }
-        
-        // move to main tab, and switch it to the default tab
+        // put in function, instance of mainTab?
+        UIViewController.showVC(viewcontroller: MainTabBarController())
+    }
+    
+    @objc private func experienceCanceled() {
+        // put in function, instance of loginview?
+        UIViewController.showVC(viewcontroller: LoginViewController())
     }
 }
 
