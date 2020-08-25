@@ -31,14 +31,32 @@ class UserExperienceViewController: UIViewController {
         print("experience confirmed")
         if userExperienceView.experiencePickerView.selectedRow(inComponent: 0) == 0 {
             //
+            db.updateDatabaseUser(userExperience: "rijks") { (result) in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success:
+                    print("experience rijks added to database")
+                }
+            }
             print("rijks")
         } else {
             //
+            db.updateDatabaseUser(userExperience: "ticketmaster") { (result) in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success:
+                    print("experience ticketmaster added to database")
+                }
+            }
             print("ticketmaster")
         }
         // put in function, instance of mainTab?
         UIViewController.showVC(viewcontroller: MainTabBarController())
     }
+    
+    
     
     @objc private func experienceCanceled() {
         // put in function, instance of loginview?

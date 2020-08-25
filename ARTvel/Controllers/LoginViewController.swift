@@ -39,9 +39,20 @@ class LoginViewController: UIViewController {
             case .failure(let error):
                 print(error.localizedDescription)
             case .success:
-              DispatchQueue.main.async {
-                self?.navigateToMainView()
-              }
+                self?.db.getUserExperienceForUser { (result) in
+                    switch result   {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let experience):
+                        DispatchQueue.main.async {
+                            if let _ = experience {
+                                self?.navigateToMainView()
+                            } else {
+                                self?.navigateToUserExperience()
+                            }
+                        }
+                    }
+                }
             }
           }
     }
@@ -94,7 +105,16 @@ class LoginViewController: UIViewController {
     }
     
     @objc func signinButtonPressed()  {
+        guard let email = loginView.usernameTextField.text,
+            !email.isEmpty,
+            let password = loginView.passwordTextField.text,
+            !password.isEmpty
+        else    {
+            print("missing fields")
+            return
+        }
         
+        signinExistingUser(email: email, password: password)
     }
     
     // navigate to one of 2 views depending on already user or new

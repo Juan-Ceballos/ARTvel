@@ -46,7 +46,7 @@ class DatabaseService {
         }
     }
         
-    func getUserExperienceForUser(completion: @escaping (Result<String, Error>) -> ()) {
+    func getUserExperienceForUser(completion: @escaping (Result<String?, Error>) -> ()) {
         guard let user = Auth.auth().currentUser else {return}
         db.collection(DatabaseService.usersCollection).document(user.uid).getDocument { (snapshot, error) in
             if let error = error    {
@@ -55,7 +55,7 @@ class DatabaseService {
             
             else if let snapshot = snapshot {
                 let userExperienceStored = snapshot.get("userExperience") as? String
-                completion(.success(userExperienceStored ?? ""))
+                completion(.success(userExperienceStored))
             }
         }
     }
