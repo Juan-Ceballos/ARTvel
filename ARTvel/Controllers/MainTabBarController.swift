@@ -11,12 +11,18 @@ import FirebaseAuth
 
 class MainTabBarController: UITabBarController {
     
+    public lazy var settingsVC: UIViewController = {
+        let vc = SettingsViewController()
+        vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 0)
+        return vc
+    }()
+    
     let authSession = AuthSession()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
-        viewControllers = [SettingsViewController()]
-        //auth.signOutCurrentUser()
+        //authSession.signOutCurrentUser()
+        viewControllers = [settingsVC]
     }
 }

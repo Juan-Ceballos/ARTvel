@@ -117,12 +117,14 @@ class LoginViewController: UIViewController {
         signinExistingUser(email: email, password: password)
     }
     
-    // navigate to one of 2 views depending on already user or new
 }
 
 extension LoginViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
+        let maxPasswordLength = 18
+        let maxUserNameLength = 36
+        
         guard let stringRange = Range(range, in: currentText) else {
             return false
         }
@@ -130,10 +132,10 @@ extension LoginViewController: UITextFieldDelegate {
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
         if textField == loginView.passwordTextField {
-            return updatedText.count <= 18
+            return updatedText.count <= maxPasswordLength
         }
         else {
-            return updatedText.count <= 36
+            return updatedText.count <= maxUserNameLength
         }
     }
     
