@@ -11,9 +11,21 @@ import FirebaseAuth
 
 class MainTabBarController: UITabBarController {
     
+    public lazy var searchVC: UIViewController = {
+        let vc = SearchViewController()
+        vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
+        return vc
+    }()
+    
+    public lazy var favoritesVC: UIViewController = {
+        let vc = FavoritesViewController()
+        vc.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), tag: 1)
+        return vc
+    }()
+    
     public lazy var settingsVC: UIViewController = {
         let vc = SettingsViewController()
-        vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 0)
+        vc.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
         return vc
     }()
     
@@ -23,6 +35,6 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
         //authSession.signOutCurrentUser()
-        viewControllers = [settingsVC]
+        viewControllers = [searchVC, favoritesVC, settingsVC]
     }
 }

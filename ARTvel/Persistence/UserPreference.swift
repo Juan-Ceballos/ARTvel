@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Probably delete this added experience to user database
+
 enum Experience: String {
     case rijks = "Rijksmuseum"
     case ticketmaster = "Ticketmaster"
