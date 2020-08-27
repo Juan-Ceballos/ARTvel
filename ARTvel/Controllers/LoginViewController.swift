@@ -31,8 +31,6 @@ class LoginViewController: UIViewController {
         loginView.signedUpUserButton.addTarget(self, action: #selector(signinButtonPressed), for: .touchUpInside)
     }
     
-    
-    
     private func signinExistingUser(email: String, password: String) {
         authSession.signExistingUser(email: email, password: password) { [weak self] (result) in
             switch result {

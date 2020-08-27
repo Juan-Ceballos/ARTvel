@@ -33,7 +33,6 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
         //authSession.signOutCurrentUser()
         viewControllers = [searchVC, favoritesVC, settingsVC]
     }
