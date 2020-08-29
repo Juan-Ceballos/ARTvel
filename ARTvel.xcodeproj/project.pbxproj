@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E48236B24F9A3E000A6E466 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48236A24F9A3DF00A6E466 /* DataSource.swift */; };
+		3E48236D24F9A42300A6E466 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E48236C24F9A42300A6E466 /* SearchCell.swift */; };
 		3E5FEBA324D9ED4000C238E5 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBA224D9ED3F00C238E5 /* NetworkHelper.swift */; };
 		3E5FEBA524D9ED6400C238E5 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBA424D9ED6400C238E5 /* AppError.swift */; };
 		3E5FEBA724DA00C800C238E5 /* RijksAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5FEBA624DA00C800C238E5 /* RijksAPIClient.swift */; };
@@ -56,6 +58,8 @@
 /* Begin PBXFileReference section */
 		030A3D03591BD013C3496F41 /* Pods-ARTvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARTvelTests.debug.xcconfig"; path = "Target Support Files/Pods-ARTvelTests/Pods-ARTvelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		214DB67DFE01C555CABC8281 /* Pods_ARTvelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARTvelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E48236A24F9A3DF00A6E466 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		3E48236C24F9A42300A6E466 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		3E5FEBA224D9ED3F00C238E5 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		3E5FEBA424D9ED6400C238E5 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3E5FEBA624DA00C800C238E5 /* RijksAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksAPIClient.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				3EAC89B924D25A6A004F8851 /* SceneDelegate.swift */,
 				3EAC89C024D25A6E004F8851 /* Assets.xcassets */,
 				3EAC89C224D25A6E004F8851 /* LaunchScreen.storyboard */,
+				3E48236A24F9A3DF00A6E466 /* DataSource.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 				3E5FEBC324E8A7C900C238E5 /* UserExperienceView.swift */,
 				3E5FEBC524E8A7D400C238E5 /* MainTabBarView.swift */,
 				3E7D4A9324F5E44B00FA6513 /* SearchView.swift */,
+				3E48236C24F9A42300A6E466 /* SearchCell.swift */,
 				3E7D4A9524F5E45B00FA6513 /* FavoritesView.swift */,
 				3E7D4A9724F5E47400FA6513 /* SettingsView.swift */,
 			);
@@ -439,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E7D4A9224F5DFBB00FA6513 /* FavoritesViewController.swift in Sources */,
+				3E48236D24F9A42300A6E466 /* SearchCell.swift in Sources */,
 				3E5FEBA324D9ED4000C238E5 /* NetworkHelper.swift in Sources */,
 				3E5FEBCC24E8AA5E00C238E5 /* Date+Extensions.swift in Sources */,
 				3E5FEBAF24DBA78E00C238E5 /* Secrets.swift in Sources */,
@@ -463,6 +470,7 @@
 				3E5FEBC824E8A9DB00C238E5 /* UIViewController+Navigation.swift in Sources */,
 				3E5FEBA724DA00C800C238E5 /* RijksAPIClient.swift in Sources */,
 				3E5FEBC024E8A79700C238E5 /* UserExperienceViewController.swift in Sources */,
+				3E48236B24F9A3E000A6E466 /* DataSource.swift in Sources */,
 				3E5FEBCA24E8AA3800C238E5 /* UIViewController+Alerts.swift in Sources */,
 				3E5FEBC224E8A7A700C238E5 /* MainTabBarController.swift in Sources */,
 				3E7D4A6C24F4834100FA6513 /* SettingsViewController.swift in Sources */,
