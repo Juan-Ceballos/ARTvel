@@ -34,6 +34,6 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //authSession.signOutCurrentUser()
-        viewControllers = [searchVC, favoritesVC, settingsVC]
+        viewControllers = [UINavigationController(rootViewController: searchVC), favoritesVC, settingsVC]
     }
 }
