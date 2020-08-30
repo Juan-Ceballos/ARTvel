@@ -34,7 +34,7 @@ class SearchViewController: UIViewController {
     }
     
     private func configureCollectionView()  {
-        searchView.collectionView.register(SearchCell.self, forCellWithReuseIdentifier: SearchCell.reuseIdentifier)
+        searchView.collectionView.register(RijksCell.self, forCellWithReuseIdentifier: RijksCell.reuseIdentifier)
     }
     
     private func configureSearchController()    {
@@ -49,7 +49,7 @@ class SearchViewController: UIViewController {
     private func configureDataSource()  {
         dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: searchView.collectionView, cellProvider: { (collectionView, indexPath, int) -> UICollectionViewCell? in
             
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCell.reuseIdentifier, for: indexPath) as? SearchCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RijksCell.reuseIdentifier, for: indexPath) as? RijksCell else {
                 fatalError()
             }
             

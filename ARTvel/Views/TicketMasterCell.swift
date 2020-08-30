@@ -1,16 +1,16 @@
 //
-//  SearchCell.swift
+//  TicketMasterCell.swift
 //  ARTvel
 //
-//  Created by Juan Ceballos on 8/28/20.
+//  Created by Juan Ceballos on 8/30/20.
 //  Copyright © 2020 Juan Ceballos. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-class SearchCell: UICollectionViewCell {
-    static let reuseIdentifier = "searchCell"
+class TicketMasterCell: UICollectionViewCell {
+    static let reuseIdentifier = "ticketMasterCell"
     
     public lazy var imageView: UIImageView = {
         let iv = UIImageView()
