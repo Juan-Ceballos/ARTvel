@@ -15,6 +15,11 @@ class SearchViewController: UIViewController {
         case main
     }
     
+    private enum appState {
+        case rijks
+        case ticketmaster
+    }
+    
     let authSession = AuthSession()
     let searchView = SearchView()
     private var searchController: UISearchController!
