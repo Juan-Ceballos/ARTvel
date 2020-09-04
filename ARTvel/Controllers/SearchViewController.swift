@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+
 class SearchViewController: UIViewController {
     
     private enum Section {
@@ -18,7 +19,7 @@ class SearchViewController: UIViewController {
     let searchView = SearchView()
     private var searchController: UISearchController!
     
-    private typealias DataSource = UICollectionViewDiffableDataSource<Section, Int>
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section, ArtObject>
     private var dataSource: DataSource!
     
     override func loadView() {
@@ -31,6 +32,9 @@ class SearchViewController: UIViewController {
         configureSearchController()
         configureCollectionView()
         configureDataSource()
+        
+        // forced default art objects
+        fetchSampleArtItems()
     }
     
     private func configureCollectionView()  {
@@ -46,26 +50,51 @@ class SearchViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
     }
     
+    // hardcoded search entry for rijk
+    private func fetchSampleArtItems()  {
+        RijksAPIClient.fetchArtObjects(searchQuery: "Rembrandt van Rijn") { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let artObjects):
+                DispatchQueue.main.async {
+                    self?.updateSnapshot(artItems: artObjects)
+                }
+            }
+        }
+    }
+    
+    // rijk only
+    private func updateSnapshot(artItems: [ArtObject])   {
+        var snapshot = dataSource.snapshot()
+        snapshot.appendItems(artItems, toSection: .main)
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+    
     private func configureDataSource()  {
-        dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: searchView.collectionView, cellProvider: { (collectionView, indexPath, int) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section, ArtObject>(collectionView: searchView.collectionView, cellProvider: { (collectionView, indexPath, artItem) -> UICollectionViewCell? in
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RijksCell.reuseIdentifier, for: indexPath) as? RijksCell else {
                 fatalError()
             }
             
             cell.backgroundColor = .systemRed
+            cell.titleLabel.text = artItem.title
             return cell
         })
         
         var snapshot = dataSource.snapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems(Array(1...100))
+        //snapshot.appendItems(Array(1...100))
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
     // custom del
     // instance passing
     // dependency injection
+    // state of the app
+    
+    
 }
 
 extension SearchViewController: UISearchResultsUpdating {

@@ -20,7 +20,7 @@ class RijksCell: UICollectionViewCell {
         return iv
     }()
     
-    public lazy var infoLabel: UILabel = {
+    public lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
         return label
@@ -38,7 +38,7 @@ class RijksCell: UICollectionViewCell {
     
     private func commonInit() {
         setupImageViewConstraints()
-        setupInfoLabelConstraints()
+        setupTitleLabelConstraints()
     }
     
     private func setupImageViewConstraints() {
@@ -51,9 +51,9 @@ class RijksCell: UICollectionViewCell {
         }
     }
     
-    private func setupInfoLabelConstraints()    {
-        addSubview(infoLabel)
-        infoLabel.snp.makeConstraints { (make) in
+    private func setupTitleLabelConstraints()    {
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.snp.centerY)
             make.left.equalTo(imageView.snp.right).offset(8)
             make.right.equalTo(self.snp.right).offset(-8)

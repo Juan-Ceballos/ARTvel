@@ -12,13 +12,13 @@ struct ArtObjectWrapper: Decodable {
     let artObjects: [ArtObject]
 }
 
-struct ArtObject: Decodable {
+struct ArtObject: Decodable, Hashable {
     let objectNumber: String
     let title: String
     let webImage: WebImage
 }
 
-struct WebImage: Decodable {
+struct WebImage: Decodable, Hashable {
     let url: String
 }
 

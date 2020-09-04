@@ -20,7 +20,13 @@ class TicketMasterCell: UICollectionViewCell {
         return iv
     }()
     
-    public lazy var infoLabel: UILabel = {
+    public lazy var eventNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Title"
+        return label
+    }()
+    
+    public lazy var eventTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
         return label
@@ -38,7 +44,7 @@ class TicketMasterCell: UICollectionViewCell {
     
     private func commonInit() {
         setupImageViewConstraints()
-        setupInfoLabelConstraints()
+        setupEventNameLabelConstraints()
     }
     
     private func setupImageViewConstraints() {
@@ -51,12 +57,16 @@ class TicketMasterCell: UICollectionViewCell {
         }
     }
     
-    private func setupInfoLabelConstraints()    {
-        addSubview(infoLabel)
-        infoLabel.snp.makeConstraints { (make) in
+    private func setupEventNameLabelConstraints()    {
+        addSubview(eventNameLabel)
+        eventNameLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.snp.centerY)
             make.left.equalTo(imageView.snp.right).offset(8)
             make.right.equalTo(self.snp.right).offset(-8)
         }
+    }
+    
+    private func setupEventTimeLabelConstraints()   {
+        
     }
 }
