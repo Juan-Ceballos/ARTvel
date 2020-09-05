@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Kingfisher
 
 class SearchViewController: UIViewController {
     
@@ -85,6 +86,8 @@ class SearchViewController: UIViewController {
             
             cell.backgroundColor = .systemRed
             cell.titleLabel.text = artItem.title
+            let url = URL(string: artItem.webImage.url)
+            cell.imageView.kf.setImage(with: url)
             return cell
         })
         
