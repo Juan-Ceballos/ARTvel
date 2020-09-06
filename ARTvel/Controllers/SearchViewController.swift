@@ -93,13 +93,9 @@ class SearchViewController: UIViewController {
         
         var snapshot = dataSource.snapshot()
         snapshot.appendSections([.main])
-        //snapshot.appendItems(Array(1...100))
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
-    // custom del
-    // instance passing
-    // dependency injection
     // state of the app
     
     
